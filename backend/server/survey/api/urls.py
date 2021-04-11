@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import ArticleListView, ArticleDetailView
+from .views import *
 
 urlpatterns = [
     # root api
@@ -9,9 +9,13 @@ urlpatterns = [
     # based off primary key
     path('<pk>', ArticleDetailView.as_view()),
 
-    # api/survey/id <-- grab information about a specific survey id
-    path('survey/<pk>', ArticleListView.as_view()),
+    # view all surveys
+    path('all_surveys', RuleSetView.as_view()),
 
-    # api/user/id <-- grab information about a user
-    path('survey/<pk>', ArticleListView.as_view()),
+    # view all surveys that the authenticated user owns
+    path('my_survey', ArticleDetailView.as_view()),
+
+    # view information about the passed in survey id that the authenticated user owns
+    path('my_survey/<pk>/info', ArticleDetailView.as_view()),
+
 ]
