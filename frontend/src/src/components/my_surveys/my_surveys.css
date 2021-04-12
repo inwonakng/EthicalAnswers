@@ -1,0 +1,16 @@
+.cardHeader {
+    clear: both;
+}
+
+.overLayTrigger {
+    clear: both;
+}
+
+.surveyTitle {
+    float: left;
+}
+
+.surveyCompletion {
+    color: white;
+    float: right;
+}

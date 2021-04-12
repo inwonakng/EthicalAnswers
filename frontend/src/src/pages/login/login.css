@@ -1,0 +1,16 @@
+.loginPageCSS {
+    background-color: #ecf0f5;
+    height: 100vh;
+    width: 100%;
+}
+
+.loginCard {
+    height: 26vh;
+    width: 30%;
+    margin-top: 220px;
+}
+
+.loginCardFields {
+    width: 80%;
+    margin-top: 20px;
+}

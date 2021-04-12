@@ -1,24 +1,22 @@
 import React from 'react'
-import "./all_questions.css"
+import "./my_surveys.css"
 
 import { Card, Accordion } from "react-bootstrap"
 import { Link } from "react-router-dom";
 
-function all_questions() {
+function mySurveys() {
     return (
         <Accordion>
             {
                 /*
                     should be dynamic in the future
-                    red --> not completed surveys (stacked towards the top) - can take
-                    green --> completed surveys (stacked towards the bottom) - can not take
                 */
             }
-            <Card bg="danger" text="light">
+            <Card bg="dark" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
                     <div class="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
-                        <Link to="/take/1/survey"><b><span className="surveyCompletion">LAUNCH SURVEY</span></b></Link>
+                        <Link to="/edit/1/survey"><b><span className="surveyCompletion">EDIT SURVEY</span></b></Link>
                     </div>
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
@@ -31,11 +29,11 @@ function all_questions() {
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
-            <Card bg="success" text="light">
+            <Card bg="dark" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
                     <div class="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
-                        <b><span className="surveyCompletion">COMPLETED SURVEY</span></b>
+                        <Link to="/edit/1/survey"><b><span className="surveyCompletion">EDIT SURVEY</span></b></Link>
                     </div>
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
@@ -48,8 +46,9 @@ function all_questions() {
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
+        
         </Accordion>
     )
 }
 
-export default all_questions
+export default mySurveys

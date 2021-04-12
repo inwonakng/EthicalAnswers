@@ -1,23 +1,19 @@
 import React from "react";
-import "./register.css"
+import "./login.css"
 
 import { Container, Form, Button, Card } from "react-bootstrap"
 
 import Navbar from "../../components/navbar/navbar"
 
-const registerPage = () => {
+const loginPage = () => {
     return(
-        <div className="registerPageCSS">
+        <div className="loginPageCSS">
             <Navbar/>
             <Container fluid>
                 <center>
-                    <Card className="registerCard">
+                    <Card className="loginCard">
                         <center>
-                            <Form className="registerCardFields">
-                                <Form.Group>
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" placeholder="John Doe"/>
-                                </Form.Group>
+                            <Form className="loginCardFields">
                                 <Form.Group>
                                     <Form.Label>Email</Form.Label>
                                     <Form.Control type="text" placeholder="john@doe.com" />
@@ -25,13 +21,6 @@ const registerPage = () => {
                                 <Form.Group>
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="********" />
-                                </Form.Group>
-                                <Form.Group>
-                                    <Form.Label>Retype Password</Form.Label>
-                                    <Form.Control type="password" placeholder="********" />
-                                </Form.Group>
-                                <Form.Group>
-                                    <Form.Check type="checkbox" label="I agree to the terms and conditions" />
                                 </Form.Group>
                                 <Button variant="primary" type="submit" block>Submit</Button>
                             </Form>
@@ -44,4 +33,4 @@ const registerPage = () => {
 }
 
 
-export default registerPage;
+export default loginPage;
