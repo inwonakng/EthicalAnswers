@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 // pages
-import homePage from "./pages/index/index"
-import authPage from "./pages/auth/authentication"
+import homePage from "./pages/home/home"
+import registerPage from "./pages/register/register"
 import notFound from "./pages/errorPages/404"
 
-// components
-import Navbar from "./components/navbar/navbar"
 
 class App extends Component {
   render() {
     return(
       <Router>
-        <Navbar/>
         <Switch>
+          // all questions
           <Route exact path="/" component={homePage}/>
-          <Route exact path="/auth" component={authPage}/>
+          
+          // register
+          <Route exact path="/register" component={registerPage}/>
+
           <Route exact path="/404" component={notFound}/>
           <Redirect to="/404"/>
         </Switch>

@@ -1,19 +1,20 @@
 import React from "react"
-import Navbar from "react-bootstrap/Navbar"
-import Nav from "react-bootstrap/Nav"
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Form, Button } from "react-bootstrap"
+
 
 function navBar() {
     return (
-        <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/">EthicalAnswers</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto"></Nav>
-            <Nav>
-                <Nav.Link href="/auth">Sign Up</Nav.Link>
-                <Nav.Link href="/auth">Login</Nav.Link>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">EthicalAnswers</Navbar.Brand>
+            <Nav className="mr-auto">
+                {/* can put stuff here (next to EthicalAnswers) */}
             </Nav>
-        </Navbar.Collapse>
+            <Form inline>
+                <Link to="/create"><Button variant="light" className="mr-sm-2">Create</Button></Link>
+                <Link to="/register"><Button variant="danger" className="mr-sm-2">Register</Button></Link>
+                <Link to="/login"><Button variant="success" text="light" className="mr-sm-2">Login</Button></Link>
+            </Form>
         </Navbar>
     )
 }

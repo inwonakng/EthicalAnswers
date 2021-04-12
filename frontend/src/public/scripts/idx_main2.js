@@ -11,7 +11,6 @@ function WriteCookie() {
 $(document).ready(() => {
 	$('.question_nav .filter').on('click', event => {
     $('.question_nav .filter_options').toggle("10")
-		
   });
 
 })
