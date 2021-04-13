@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { connect } from "react-redux"
 import * as actions from "./store/actions/auth"
 
@@ -9,8 +11,8 @@ import registerPage from "./pages/register/register"
 import loginPage from "./pages/login/login"
 import mySurveysPage from "./pages/mysurveys/mysurveys"
 import notFound from "./pages/errorPages/404"
-import Navbar from "./components/navbar/navbar"
 
+toast.configure()
 
 class App extends Component {
 
