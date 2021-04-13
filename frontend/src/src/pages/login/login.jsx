@@ -5,6 +5,8 @@ import { Container, Form, Button, Card } from "react-bootstrap"
 
 import Navbar from "../../components/navbar/navbar"
 
+
+
 const loginPage = () => {
     return(
         <div className="loginPageCSS">
@@ -15,7 +17,7 @@ const loginPage = () => {
                         <center>
                             <Form className="loginCardFields">
                                 <Form.Group>
-                                    <Form.Label>Email</Form.Label>
+                                    <Form.Label>Username</Form.Label>
                                     <Form.Control type="text" placeholder="john@doe.com" />
                                 </Form.Group>
                                 <Form.Group>

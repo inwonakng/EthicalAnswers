@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux"
+import * as actions from "./store/actions/auth"
 
 // pages
 import homePage from "./pages/home/home"
@@ -7,13 +9,19 @@ import registerPage from "./pages/register/register"
 import loginPage from "./pages/login/login"
 import mySurveysPage from "./pages/mysurveys/mysurveys"
 import notFound from "./pages/errorPages/404"
+import Navbar from "./components/navbar/navbar"
 
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.onTryAutoSignup()
+  }
+
   render() {
     return(
       <Router>
-        <Switch>
+        <Switch {...this.props}>
           // all questions
           <Route exact path="/" component={homePage}/>
           
@@ -37,4 +45,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.token !== null
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignup: () => dispatch(actions.authCheckState())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

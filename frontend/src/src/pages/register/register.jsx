@@ -15,8 +15,8 @@ const registerPage = () => {
                         <center>
                             <Form className="registerCardFields">
                                 <Form.Group>
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" placeholder="John Doe"/>
+                                    <Form.Label>Username</Form.Label>
+                                    <Form.Control type="text" placeholder="johndoe"/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Email</Form.Label>
