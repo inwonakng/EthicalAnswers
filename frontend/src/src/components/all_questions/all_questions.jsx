@@ -16,7 +16,7 @@ function all_questions() {
             }
             <Card bg="danger" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <div class="cardHeader">
+                    <div className="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
                         <Link to="/take/1/survey"><b><span className="surveyCompletion">LAUNCH SURVEY</span></b></Link>
                     </div>
@@ -33,7 +33,7 @@ function all_questions() {
             </Card>
             <Card bg="success" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <div class="cardHeader">
+                    <div className="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
                         <b><span className="surveyCompletion">COMPLETED SURVEY</span></b>
                     </div>

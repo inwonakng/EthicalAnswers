@@ -4,15 +4,11 @@ import "./register.css"
 import { Container, Form, Button, Card } from "react-bootstrap"
 import { toast } from 'react-toastify';
 
-import Navbar from "../../components/navbar/navbar"
-
-
 const registerPage = () => {
     const notify = () => toast.error("⚠️ Failed to register account", {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
 
     return(
         <div className="registerPageCSS">
-            <Navbar/>
             <Container fluid>
                 <center>
                     <Card className="registerCard">

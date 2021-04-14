@@ -14,7 +14,7 @@ function mySurveys() {
             }
             <Card bg="dark" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <div class="cardHeader">
+                    <div className="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
                         <Link to="/edit/1/survey"><b><span className="surveyCompletion">EDIT SURVEY</span></b></Link>
                     </div>
@@ -31,7 +31,7 @@ function mySurveys() {
             </Card>
             <Card bg="dark" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <div class="cardHeader">
+                    <div className="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
                         <Link to="/edit/1/survey"><b><span className="surveyCompletion">EDIT SURVEY</span></b></Link>
                     </div>

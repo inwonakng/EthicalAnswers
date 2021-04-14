@@ -5,11 +5,11 @@ import "./right_sidebar.css"
 
 function right_sidebar() {
     return (
-        <div class = "side_col">
+        <div className = "side_col">
             <br></br>
             <Card>
                 <Card.Body>
-                    <Card.Title><center>Most Viewed Questions</center></Card.Title>
+                    <Card.Title><center>Most Answered Questions</center></Card.Title>
                     <Card.Text>
                         <Link>Question 1</Link>
                         <br></br>
