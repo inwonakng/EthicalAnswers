@@ -9,8 +9,8 @@ import * as actions from "../../store/actions/auth"
 class loginPage extends React.Component {
     handleSubmit = (e) => {
         // this works, it just does it on click of login, we need to work on that
-        this.props.onAuth("nishi7409", "passwordGoesHere")
-        this.props.history.push("/")
+        // this.props.onAuth("nishi7409", "")
+        // this.props.history.push("/")
     }
 
     render() {
