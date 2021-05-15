@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Nav, Form, Button } from "react-bootstrap"
 import * as actions from "../../store/actions/auth"
 import { connect } from "react-redux";
@@ -44,5 +44,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-// export default withRouter(connect(null, mapDispatchToProps)(NavBar))
 export default connect(null, mapDispatchToProps)(NavBar)

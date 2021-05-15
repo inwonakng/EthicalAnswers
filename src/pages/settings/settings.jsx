@@ -5,8 +5,6 @@ import { Container, Row, Col, Card, Form } from "react-bootstrap"
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import AllQuestions from "../../components/all_questions/all_questions"
-
 function settingsPage (props) {
     return(
         <div className="settingsPageCSS">

@@ -6,7 +6,7 @@ import LoginPage from "./pages/login/login";
 import Surveys from "./pages/surveys/surveys"
 import mySurveys from "./pages/mysurveys/mysurveys"
 import settingsPage from "./pages/settings/settings"
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 
 const BaseRouter = () => (
