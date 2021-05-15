@@ -18,8 +18,9 @@ class NavBar extends React.Component {
                         this.props.isAuthenticated ?
 
                         <>
-                            <Link to="/create"><Button variant="light" className="mr-sm-2"><i className="fas fa-question-circle"></i> Create</Button></Link>
-                            <Button variant="danger" className="mr-sm-2" onClick={this.props.logout}><i className="fas fa-sign-out-alt"></i> Logout</Button>
+                            <Link to="/create"><Button variant="light" className="mr-sm-2"><i className="fas fa-question-circle"></i> Create Survey</Button></Link>
+                            <Link to="/surveys"><Button variant="light" className="mr-sm-2"><i className="fas fa-home"></i> Dashboard</Button></Link>
+                            <Link to="/"><Button variant="danger" className="mr-sm-2" onClick={this.props.logout}><i className="fas fa-sign-out-alt"></i> Logout</Button></Link>
                         </>
 
                         :

@@ -1,15 +1,15 @@
-import React from 'react'
-import "./mysurveys.css"
+import React from "react";
+import "./surveys.css"
 
-import { Container, Row, Col, Card, Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Form } from "react-bootstrap"
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import MyQuestions from "../../components/my_surveys/my_surveys"
+import AllQuestions from "../../components/all_questions/all_questions"
 
-function mysurveys() {
-    return (
-        <div className="mySurveysCSS">
+function surveysPage (props) {
+    return(
+        <div className="surveysPageCSS">
             <Container fluid>
                 <Row>
                     <Col xs={2} className="leftSideBar">
@@ -46,7 +46,7 @@ function mysurveys() {
                             </Form>
                         </Card>
                         <br></br>
-                        <MyQuestions/>
+                        <AllQuestions/>
                     </Col>
                     <Col className="rightBar">
                         <Card>
@@ -98,4 +98,5 @@ function mysurveys() {
     )
 }
 
-export default mysurveys
+
+export default surveysPage;
