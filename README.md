@@ -73,12 +73,15 @@ CREATE DATABASE mysqldb
 
 ## venv 
 ### You should always use venv! This will help us isolate the dependencies of our project to make for easier installation
+### Before you start the setup, make sure you are inside the 'backend/' directory. 
+### If not, make sure to add your venv directory to the gitignore file. 
 
 ```bash
 python3 -m venv venv
 ```
 
 The above command will generate `venv` under current directory
+
 
 ### Enter Virtualenv
 

@@ -9,6 +9,13 @@ from django.db.models import JSONField
 from django.db.models import Q
 import time
 
+class Article(models.Model):
+    title = models.CharField(max_length=120)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
+
 '''User Profile models'''
 class UserProfile(models.Model):
     # links the UserProfile to a User model

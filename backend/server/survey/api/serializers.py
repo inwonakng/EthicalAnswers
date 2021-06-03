@@ -6,7 +6,7 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = ('title', 'content')
 
-class RuleSetSerializer(serializers.ModelSerializer):
+class SurveySeedSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RuleSet
+        model = SurveySeed
         fields = ("prompt", "rule_title", "user", "generative", "number_of_answers", "scenario_size", "creation_time")
