@@ -11,7 +11,8 @@ VSCode is the recommended editor for this project.
 please **DO NOT** use git through the command line. 
 This will be painful for everyone
 
-# Installation
+# Installation (backend only)
+**Backend only**
 
 Since custom package and specific package version are used in this project, we recommend using `venv` for development so your local python env won't be polluted.
 
@@ -109,7 +110,7 @@ pip freeze > requirements.txt
 ```
 
 
-# Database setup 
+# Database setup (backend only) 
 
 
 ### After model changes (backend changes that need to be reflected in the database)
@@ -153,3 +154,11 @@ python3 manage.py runserver
 ```
 
 ##
+
+# Installation & Run (frontend only)
+**Frontend only**
+
+Head to the root of the project and run the following:
+`npm install`
+`cd src`
+`npm run start`

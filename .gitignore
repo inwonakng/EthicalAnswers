@@ -16,6 +16,7 @@ backend/server/survey/migrations
 
 # venv
 /backend/venv
+/backend/env
 
 # misc
 .DS_Store
