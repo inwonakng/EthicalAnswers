@@ -10,7 +10,7 @@ urlpatterns = [
     path('<pk>', ArticleDetailView.as_view()),
 
     # view all surveys
-    path('all_surveys', RuleSetView.as_view()),
+    path('all_surveys', SurveySeedView.as_view()),
 
     # view all surveys that the authenticated user owns
     path('my_survey', ArticleDetailView.as_view()),

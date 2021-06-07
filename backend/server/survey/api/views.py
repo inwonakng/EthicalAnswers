@@ -10,6 +10,6 @@ class ArticleDetailView(RetrieveAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
-class RuleSetView(ListAPIView):
-    queryset = RuleSet.objects.all()
-    serializer_class = RuleSetSerializer
+class SurveySeedView(ListAPIView):
+    queryset = SurveySeed.objects.all()
+    serializer_class = SurveySeedSerializer
