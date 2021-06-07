@@ -126,6 +126,8 @@ python manage.py migrate
 DROP DATABASE ethicalanswers_db; CREATE DATABASE ethicalanswers_db;
 ```
 
+- Ignore the strikethrough information below, continue to the `Migration & Start Server` section!
+~~
 - After you migrate, create a user in the database by running the app and going to \register
 - Once you create a user, run the django shell in order to populate the database
 
@@ -135,7 +137,7 @@ python manage.py shell
 
 - Then copy and run the code in defulat_database.py in the repo's root folder
 - Now you should have the current setup for testing.
-
+~~
 
 <!--@TODO if custom packages uses, we could have a script to move then into `venv` or let user do their global package stuff.-->
 
