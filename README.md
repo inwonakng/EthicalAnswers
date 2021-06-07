@@ -159,6 +159,8 @@ python3 manage.py runserver
 **Frontend only**
 
 Head to the root of the project and run the following:
-`npm install`
-`cd src`
-`npm run start`
+```
+npm install
+cd src
+npm run start
+```
