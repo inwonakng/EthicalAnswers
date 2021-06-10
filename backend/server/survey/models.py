@@ -9,19 +9,13 @@ from django.db.models import JSONField
 from django.db.models import Q
 import time
 
-class Article(models.Model):
-    title = models.CharField(max_length=120)
-    content = models.TextField()
-
-    def __str__(self):
-        return self.title
-
 '''User Profile models'''
 class UserProfile(models.Model):
     # links the UserProfile to a User model
     # User model is Django's authentication model: contains username, password, etc.
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     creation_time = models.DateTimeField()
+    email = models.EmailField(max_length=360,null=True)
 
     # TODO: fill other useful fields here as needed
     # current_response = models.OneToOneField('SurveyResponse', default=1)
@@ -57,13 +51,11 @@ class UserForm(forms.ModelForm):
         return user
 
 class SurveyResponse(models.Model):
-    prompt = models.CharField(max_length=200, null=False, default='')
-    desc = models.TextField(null=False, blank=False, default='')
     date = models.DateTimeField(default=timezone.now)
     questions = models.ManyToManyField('Question')
     seed_id = models.IntegerField(null=False, default=-1)
     # user taking this response
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     
     def get_questions(self):
         return self.questions.all()
@@ -124,7 +116,7 @@ class SurveySeed(models.Model):
     question_size = models.IntegerField(null=True,default=2)
 
     # seed creator
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     survey_title = models.TextField(null=False,default='Default description')
     prompt = models.TextField(null=False,default='Default prompt!')
     # this field is only populated if not generative
