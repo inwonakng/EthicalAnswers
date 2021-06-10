@@ -24,7 +24,7 @@ class UserProfile(models.Model):
     creation_time = models.DateTimeField()
 
     # TODO: fill other useful fields here as needed
-    # current_response = models.OneToOneField('Response', default=1)
+    # current_response = models.OneToOneField('SurveyResponse', default=1)
 
 class UserForm(forms.ModelForm):
     """UserForm is the form for user registration
@@ -56,8 +56,7 @@ class UserForm(forms.ModelForm):
             user.save()
         return user
 
-# Old survey model
-class Response(models.Model):
+class SurveyResponse(models.Model):
     prompt = models.CharField(max_length=200, null=False, default='')
     desc = models.TextField(null=False, blank=False, default='')
     date = models.DateTimeField(default=timezone.now)
@@ -115,7 +114,7 @@ class Option(models.Model):
         new_option.save()
         return new_option
 
-'''Response models sections end here'''
+'''SurveyResponse models sections end here'''
 
 '''Actual Survey model'''
 # Rule model
@@ -145,5 +144,5 @@ class SurveySeed(models.Model):
         return [o.text for o in ss.options.all()]
 
     def get_num_answers(self):
-        qset = Response.objects.filter(Q(seed_id = self.id))
+        qset = SurveyResponse.objects.filter(Q(seed_id = self.id))
         return len(qset)

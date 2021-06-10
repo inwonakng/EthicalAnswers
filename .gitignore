@@ -30,4 +30,6 @@ yarn-debug.log*
 yarn-error.log*
 backend/server/backup.sql
 
+# nasty compiled python
 *.pyc
+backend/server/survey/__pycache__/*

@@ -13,3 +13,4 @@ class ArticleDetailView(RetrieveAPIView):
 class SurveySeedView(ListAPIView):
     queryset = SurveySeed.objects.all()
     serializer_class = SurveySeedSerializer
+
