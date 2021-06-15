@@ -9,22 +9,16 @@ from django.db.models import JSONField
 from django.db.models import Q
 import time
 
-class Article(models.Model):
-    title = models.CharField(max_length=120)
-    content = models.TextField()
-
-    def __str__(self):
-        return self.title
-
 '''User Profile models'''
 class UserProfile(models.Model):
     # links the UserProfile to a User model
     # User model is Django's authentication model: contains username, password, etc.
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     creation_time = models.DateTimeField()
+    email = models.EmailField(max_length=360,null=True)
 
     # TODO: fill other useful fields here as needed
-    # current_response = models.OneToOneField('Response', default=1)
+    # current_response = models.OneToOneField('SurveyResponse', default=1)
 
 class UserForm(forms.ModelForm):
     """UserForm is the form for user registration
@@ -56,15 +50,12 @@ class UserForm(forms.ModelForm):
             user.save()
         return user
 
-# Old survey model
-class Response(models.Model):
-    prompt = models.CharField(max_length=200, null=False, default='')
-    desc = models.TextField(null=False, blank=False, default='')
+class SurveyResponse(models.Model):
     date = models.DateTimeField(default=timezone.now)
     questions = models.ManyToManyField('Question')
     seed_id = models.IntegerField(null=False, default=-1)
     # user taking this response
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     
     def get_questions(self):
         return self.questions.all()
@@ -115,7 +106,7 @@ class Option(models.Model):
         new_option.save()
         return new_option
 
-'''Response models sections end here'''
+'''SurveyResponse models sections end here'''
 
 '''Actual Survey model'''
 # Rule model
@@ -125,7 +116,7 @@ class SurveySeed(models.Model):
     question_size = models.IntegerField(null=True,default=2)
 
     # seed creator
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     survey_title = models.TextField(null=False,default='Default description')
     prompt = models.TextField(null=False,default='Default prompt!')
     # this field is only populated if not generative
@@ -145,5 +136,5 @@ class SurveySeed(models.Model):
         return [o.text for o in ss.options.all()]
 
     def get_num_answers(self):
-        qset = Response.objects.filter(Q(seed_id = self.id))
+        qset = SurveyResponse.objects.filter(Q(seed_id = self.id))
         return len(qset)

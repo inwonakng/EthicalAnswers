@@ -163,3 +163,6 @@ ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Let django auto-create primary keys for our models
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
