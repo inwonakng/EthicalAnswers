@@ -23,7 +23,7 @@ class SurveySeedSerializer(serializers.ModelSerializer):
     questions = QuestionSerializer(many=True, read_only=True)
     class Meta:
         model = SurveySeed
-        fields = ("prompt", "survey_title", "user", "number_of_answers", "question_size", "creation_time","questions")
+        fields = ("prompt", "survey_title", "user", "number_of_answers", "creation_time","questions")
 
 class SurveyResponseSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)

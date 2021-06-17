@@ -113,7 +113,7 @@ class Option(models.Model):
 class SurveySeed(models.Model):
     creation_time = models.DateTimeField(auto_now = True)
     number_of_answers = models.IntegerField(null=True, default=0)
-    question_size = models.IntegerField(null=True,default=2)
+    # question_size = models.IntegerField(null=True,default=2)
 
     # seed creator
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
