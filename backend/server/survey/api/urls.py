@@ -3,14 +3,15 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    # Setting the root API to a model list view seems to confuse the django app.
-    # i guess leave empty for now
-
     # Survey Seeds access
-    path('surveys',SurveySeed_ListView.as_view()),
-    path('surveys/<pk>',SurveySeed_DetailView.as_view()),
 
-    # Survey Responses access
-    path('responses', SurveyResponse_ListView.as_view()),
-    path('responses/<pk>', SurveyResponse_DetailView.as_view()),
+    # view available surveys. username is the login key.. 
+    # I guess the user info will be stored in react side once verification?
+    path('surveys/<str:username>',AvailableSurveysList.as_view()),
+
+    # view surveys created by user
+    path('mysurvey/<username>',MySurveysList.as_view()),
+
+    # view respnoses by user
+    path('responses/<str:username>', MyResponsesList.as_view()),
 ]
