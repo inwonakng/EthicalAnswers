@@ -14,7 +14,7 @@ class UserProfile(models.Model):
     # links the UserProfile to a User model
     # User model is Django's authentication model: contains username, password, etc.
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    creation_time = models.DateTimeField()
+    creation_time = models.DateTimeField(auto_now=True)
     email = models.EmailField(max_length=360,null=True)
 
     # TODO: fill other useful fields here as needed
@@ -113,7 +113,7 @@ class Option(models.Model):
 class SurveySeed(models.Model):
     creation_time = models.DateTimeField(auto_now = True)
     number_of_answers = models.IntegerField(null=True, default=0)
-    question_size = models.IntegerField(null=True,default=2)
+    # question_size = models.IntegerField(null=True,default=2)
 
     # seed creator
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)

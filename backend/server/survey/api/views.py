@@ -2,20 +2,19 @@ from rest_framework.generics import *
 from survey.models import *
 from .serializers import *
 
-class SurveySeed_ListView(ListAPIView):
-    queryset = SurveySeed.objects.all()
+class AvailableSurveysList(ListAPIView):
     serializer_class = SurveySeedSerializer
+    def get_queryset(self):
+        return SurveySeed.objects.all().exclude(user__user__username = self.kwargs['username'])
 
-class SurveySeed_DetailView(RetrieveAPIView):
-    queryset = SurveySeed.objects.all()
+class MySurveysList(ListAPIView):
     serializer_class = SurveySeedSerializer
+    def get_queryset(self):
+        return SurveySeed.objects.filter(user__user__username = self.kwargs['username'])
 
-class SurveyResponse_ListView(ListAPIView):
-    queryset = SurveyResponse.objects.all()
+class MyResponsesList(ListAPIView):
     serializer_class = SurveyResponseSerializer
-
-class SurveyResponse_DetailView(RetrieveAPIView):
-    queryset = SurveyResponse.objects.all()
-    serializer_class = SurveyResponseSerializer
+    def get_queryset(self):
+        return SurveyResponse.objects.filter(user__user__username = self.kwargs['username'])
 
 
