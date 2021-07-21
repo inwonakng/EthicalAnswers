@@ -1,16 +1,48 @@
+.loginButton{
+    width: 300px;
+    margin-top: 50px;
+    font-size: 25px;
+}
+
 .loginPageCSS {
     background-color: #ecf0f5;
-    height: 100vh;
+    height: 30vh;
     width: 100%;
 }
 
 .loginCard {
-    height: 26vh;
-    width: 30%;
-    margin-top: 220px;
+    height: 250px;
+    width: 25%;
+    margin-top: 100px;
 }
 
 .loginCardFields {
     width: 80%;
     margin-top: 10px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.loginPageForgotPasswordButton{
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.loginPageLogo{
+    width: 750px;
+    margin-top: 100px;
+}
+
+.loginPageRegisterCard{
+    height: 70px;
+    width: 25%;
+    margin-top: 40px;
+    text-align: center;
+
+}
+
+.loginPageRegisterCardText{
+    margin-top: 17px;
+    font-size: 22px;
 }

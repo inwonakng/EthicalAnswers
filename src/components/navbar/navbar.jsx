@@ -1,16 +1,26 @@
 import React from "react"
+import "./navbar.css"
+
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Form, Button } from "react-bootstrap"
 import * as actions from "../../store/actions/auth"
 import { connect } from "react-redux";
+import Divider from '@material-ui/core/Divider';
+
+import dark_mode_logo from '../../components/logos/word_logo_white.png';
 
 class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/">EthicalAnswers</Navbar.Brand>
+                <Navbar bg="primary" variant="dark" className= "navbarCSS">
+
+                <Link to="/">
+                    <img src= {dark_mode_logo} alt= "SurveyAI_Logo" className= 'navbarHomeLogo'>
+                    </img>
+                </Link>
                     <Nav className="mr-auto">
+                    <Divider light orientation="vertical" flexItem /> {/* this won't appear for some reason */}
                         {/* can put stuff here (next to EthicalAnswers) */}
                     </Nav>
                     <Form inline>
@@ -26,8 +36,19 @@ class NavBar extends React.Component {
                         :
 
                         <>
-                            <Link to="/register"><Button variant="danger" className="mr-sm-2"><i className="fas fa-user-plus"></i> Register</Button></Link>
-                            <Link to="/login"><Button variant="success" className="mr-sm-2"><i className="fas fa-sign-in-alt"></i> Login</Button></Link>
+                            <Link to="/register">
+                                <Button variant= "light" className="mr-sm-2 signupButtonCSS">
+                                    <i className="fas fa-user-plus"> </i>
+                                        <span> Sign Up</span>
+                                </Button>
+                            </Link>
+                            
+                            <Link to="/login">
+                                <Button variant= "light" className="mr-sm-2 loginButtonCSS">
+                                    <i className="fas fa-sign-in-alt"></i>
+                                    <span> Login</span>
+                                </Button>
+                            </Link>
                         </>
                     }
                     </Form>
