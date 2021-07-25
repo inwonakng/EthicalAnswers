@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { Button } from './Button';
+import light_mode_logo from '../components/logos/word_logo_black.png';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -23,10 +24,7 @@ function Footer() {
       <section class='social-media'>
         <div class='social-media-wrap'>
           <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
-              TRVL
-              <i class='fab fa-typo3' />
-            </Link>
+            <img src= {light_mode_logo} alt= "SurveyAI_Logo" className= 'registerDescriptionLogo' />
           </div>
           <small class='website-rights'>EthicalAI © 2020</small>
           <div class='social-icons'>
