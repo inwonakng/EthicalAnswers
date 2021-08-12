@@ -1,6 +1,6 @@
 import React from 'react'
 import HomePage from "./pages/home/home"
-import registerPage from "./pages/register/register";
+import RegisterPage from "./pages/register/register";
 import LoginPage from "./pages/login/login";
 
 import Surveys from "./pages/surveys/surveys"
@@ -12,7 +12,7 @@ import { Route } from "react-router-dom";
 const BaseRouter = () => (
     <div>
         <Route exact path="/" render={(props) => <HomePage {...props}/>}/>
-        <Route exact path="/register" component={registerPage}/>
+        <Route exact path="/register" component={RegisterPage}/>
         <Route exact path="/login" component={LoginPage}/>
 
         <Route exact path="/surveys" render={(props) => <Surveys {...props}/>}/>
