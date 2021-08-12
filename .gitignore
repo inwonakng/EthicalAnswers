@@ -34,3 +34,4 @@ backend/server/backup.sql
 # nasty compiled python
 *.pyc
 backend/server/survey/__pycache__/*
+package-lock.json
