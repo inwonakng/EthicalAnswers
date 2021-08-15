@@ -41,7 +41,7 @@ const registerPage = () => {
                                         </Form.Group>
                                         <Form.Group>
                                             <Form.Label>Email</Form.Label>
-                                            <Form.Control type="text" placeholder="Your email" />
+                                            <Form.Control type="text" placeholder="We won't judge if it's AOL" />
                                         </Form.Group>
                                         <Form.Group>
                                             <Form.Label>Password</Form.Label>

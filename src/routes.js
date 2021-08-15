@@ -6,6 +6,9 @@ import LoginPage from "./pages/login/login";
 import Surveys from "./pages/surveys/surveys"
 import mySurveys from "./pages/mysurveys/mysurveys"
 import settingsPage from "./pages/settings/settings"
+
+import surveyCreationPage from "./pages/surveyCreation/surveyCreation"
+
 import { Route } from "react-router-dom";
 
 
@@ -18,6 +21,8 @@ const BaseRouter = () => (
         <Route exact path="/surveys" render={(props) => <Surveys {...props}/>}/>
         <Route exact path="/mysurveys" component={mySurveys}/>
         <Route exact path="/settings" component={settingsPage}/>
+
+        <Route exact path="/surveyCreationPage" component={surveyCreationPage}/>
 
     </div>
 )
