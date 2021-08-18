@@ -35,6 +35,10 @@
     margin-top: 3%;
 }
 
+.optionDeleteButtonColumn{
+    column-width: 5%;
+}
+
 .optionField{
     font-size: 25px;
     font-weight: 500;
@@ -48,6 +52,10 @@
     text-align: center;
 }
 
+.optionTextBox{
+    margin-right: 25px;
+}
+
 .optionsCard{
     margin-top: 75px;
     width: 75%;
@@ -55,7 +63,7 @@
 
 .optionsContainer{
     margin-top: 25px;
-    width: 80%;
+    width: 85%;
     align-self: center;
 }
 
@@ -73,6 +81,11 @@
     margin-top: 50px;
     margin-right: 50px;
     text-align: center;
+}
+
+.removeOptionButton{
+    /* width: 100%; */
+    align-self: left;
 }
 
 .smallDescriptorColumn{

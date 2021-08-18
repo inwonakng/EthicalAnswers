@@ -1,18 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import "./surveyCreation.css"
 
-import { Container, Row, Col, Card, Form } from "react-bootstrap"
+import { Container, Card, Form } from "react-bootstrap"
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-function surveyCreation (props) {
-    var surveyOptions = ["This option is a test.", "", ""];
+const SurveyCreation = props => {
+    
+    const [surveyInfo, setSurveyInfo] = useState({});
 
-    var optionCount = 1;
+    const handleInput = (field, e) => {
+        setSurveyInfo({...surveyInfo,[field]: e.target.value})
+    }
 
-    function addOption(){
-        optionCount++;
-        surveyOptions.push(" ");
+    const [fields, setFields] = useState([{ value: null }]);
+
+    function handleChange(i, event) {
+        const values = [...fields];
+        values[i].value = event.target.value;
+        setFields(values);
+    }
+
+    function handleAddOption() {
+        const values = [...fields];
+        values.push({ value: null });
+        setFields(values);
+    }
+
+    function handleRemove(i) {
+        const values = [...fields];
+        values.splice(i, 1);
+        setFields(values);
+    }
+
+    function packageSurvey(){
+        var now = new Date();
+        var date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+        var timeStamp = date + ' ' + time;
+
+        var optionsArr = [];
+        for (var i = 0; i < fields.length; i++){
+            var newOption = {};
+            newOption["name"] = "Option " + (i + 1);
+            newOption["text"] = fields[i];
+            newOption["score"] = null;
+            optionsArr.push(newOption);
+        }
+            
+        return JSON.stringify({
+            "prompt": surveyInfo.prompt,
+            "survey_title": surveyInfo.title,
+            "description": surveyInfo.description,
+            "user": {
+                // Instructed to leave this blank until future implementation... //
+            },
+            "number_of_answers": 0,
+            "creation_time": timeStamp,
+            "questions": [
+                {
+                    "question": "Assign scores to the options",
+                    "options": optionsArr
+                }
+            ]
+        });
+    }
+
+    function submitSurvey(){
+        var newJSON = packageSurvey(); // This is the JSON made when the "Submit Survey" button is pressed
+        console.log(newJSON);
+        // Backend code should be added here in order to carry out survey storage //
     }
 
     return(
@@ -30,7 +86,7 @@ function surveyCreation (props) {
                                         Survey Title
                                     </div>
                                     <div className= "standardColumn surveyBigFields">
-                                        <Form.Control type="email" placeholder="Enter Survey Title" />
+                                        <Form.Control type="text" placeholder="Enter Survey Title" onChange={e => handleInput('title', e)} required />
                                     </div>
                                 </div>
                             </Form.Group>
@@ -41,7 +97,7 @@ function surveyCreation (props) {
                                         Survey Description
                                     </div>
                                     <div className= "standardColumn surveyBigFields">
-                                    <Form.Control as="textarea" rows={5} placeholder="This survey is meant to....." />
+                                    <Form.Control as="textarea" rows={5} placeholder="This survey is meant to....." onChange={e => handleInput('description', e)} required/>
                                     </div>
                                 </div>
                             </Form.Group>
@@ -52,33 +108,39 @@ function surveyCreation (props) {
                                         Prompt
                                     </div>
                                     <div className= "standardColumn surveySmallFields">
-                                        <Form.Control className= "smallFields" type="email" placeholder="Enter survey prompt" />
+                                        <Form.Control className= "smallFields" type="email" placeholder="Enter survey prompt" onChange={e => handleInput('prompt', e)} required />
                                     </div>
                                 </div>
 
                                 <div className= "optionsHeader">
                                     Options
                                 </div>
-
-                                {
-                                surveyOptions.map((value, index) => {
+                                
+                                {fields.map((field, idx) => {
                                     return (
-                                        <div className= "optionsContainer">
-                                            <div className= " optionField">
-                                                <Form.Control type="email" placeholder= {"Option " + (index + 1)} />
+                                            <div key={`${field}-${idx}`} className= "optionsContainer">
+                                                <div className= "standardRow">
+                                                    <div className= "standardColumn optionTextBox">
+                                                        <Form.Control type="text" placeholder= {"Option " + (idx + 1)} onChange={e => handleChange(idx, e)} />
+                                                    </div>
+                                                    <div className= "optionDeleteButtonColumn">
+                                                        <Button variant= "danger" className="mr-sm-2 removeOptionButton" onClick={() => handleRemove(idx)}>
+                                                            <i className="fas fa-minus"></i>
+                                                        </Button>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
-                                        </div>
-                                    )
+                                    );
                                 })}
-
                                 <div>
-                                    <Button variant= "success" className= "addOptionsButton" onClick= {addOption()}>
+                                    <Button variant= "success" className= "addOptionsButton" onClick= {() => handleAddOption()}>
                                         Add Another Option
                                     </Button>
                                 </div>
                             </Card>
 
-                            <Button variant= "primary" className= "submitSurveyButton">
+                            <Button variant= "primary" className= "submitSurveyButton" onClick= {() => submitSurvey()}>
                                 Submit Survey
                             </Button>
                         </Form>
@@ -91,4 +153,4 @@ function surveyCreation (props) {
 }
 
 
-export default surveyCreation;
+export default SurveyCreation;
