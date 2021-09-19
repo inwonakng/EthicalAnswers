@@ -31,4 +31,3 @@ class SurveyResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = SurveyResponse
         fields = ("date", "questions", "seed_id", "user")
-

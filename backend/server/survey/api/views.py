@@ -17,4 +17,7 @@ class MyResponsesList(ListAPIView):
     def get_queryset(self):
         return SurveyResponse.objects.filter(user__user__username = self.kwargs['username'])
 
+class SubmitSurvey(ListAPIView):
+    pass
+
 
