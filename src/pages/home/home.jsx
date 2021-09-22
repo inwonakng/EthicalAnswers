@@ -10,7 +10,6 @@ function homePage (props) {
         <>
           <HeroSection />
           <Cards />
-          <Footer />
         </>
     );
 }
