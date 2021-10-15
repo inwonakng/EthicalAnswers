@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import "./register.css"
 import light_mode_logo from '../../components/logos/word_logo_black.png';
-
 import { Container, Form, Button, Card } from "react-bootstrap"
 import { toast } from 'react-toastify';
 import { connect } from "react-redux"
-import * as actions from "../../store/actions/auth"
 import { Link } from "react-router-dom";
+import * as actions from "../../store/actions/auth";
+import "./register.css";
 
 const RegisterPage = props => {
     const [userInfo,setUserInfo] = useState({})
@@ -22,26 +21,20 @@ const RegisterPage = props => {
         password2:'confirm password'
     }
 
-    // not sure when this should be displayed?? 
-    const notify = () => toast.error("⚠️ Failed to register account", {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
-
     const handleSubmit = event => {
         console.log(userInfo.username,userInfo.email,userInfo.password1,userInfo.password2)
-        props.onRegister(   userInfo.username,
-                            userInfo.email,
-                            userInfo.password1,
-                            userInfo.password2)
-
+        props.onRegister(userInfo.username, userInfo.email, userInfo.password1, userInfo.password2)
+        console.log("Error:");
+        console.log(props.error)
         if (props.error) {
-            let message = "⚠️ You should not be seeing this error (need to fix)"
-            if(props.error.response){
-                for(let field in props.error.response.data){
+            if (props.error.response){
+                for (let field in props.error.response.data){
                     toast.error(`⚠️ ${fieldnames[field]}: ${props.error.response.data[field]}`, {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
                 }
-            }else{
+            } else {
                 toast.error('⚠️ You should not be seeing this error (need to fix)', {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
             }
-        }else props.history.push("/surveys")
+        }
     }
     return(
         <div className="RegisterPageCSS">

@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import axios from "axios"
+import { toast } from "react-toastify";
 
 const API_BASE = 'http://127.0.0.1:8000/rest-auth'
 
@@ -82,9 +83,14 @@ export const authSignup = (username, email, password1, password2) => {
             localStorage.setItem('username', username)
             dispatch(authSuccess(token))
             dispatch(checkAuthTimeout(3600))
+            window.location.href="/surveys"
         })
         .catch(err => {
+            const fieldnames = {username: "username", email: "email", password1: "password", password2: "confirm password"};
             dispatch(authFail(err))
+            for (let field in err) {
+                toast.error(`⚠️ ${fieldnames[field]}: ${err[field]}`, { position: toast.POSITION.TOP_CENTER, pauseOnHover: false });
+            }
         })
     }
 }
