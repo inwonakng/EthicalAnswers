@@ -13,9 +13,6 @@ const LoginPage = props => {
 
     const handleSubmit = () => {
         props.onAuth(loginDetail.username, loginDetail.password)
-        if (props.error) {
-            toast.error("⚠️ You should not be seeing this error (need to fix)", {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
-        }else props.history.push("/surveys")
     }
 
     const onInput = (field,e) => {

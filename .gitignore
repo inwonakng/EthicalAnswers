@@ -18,6 +18,7 @@ backend/server/survey/migrations
 # venv
 /backend/venv
 /backend/env
+/backend/ethicalEnv
 
 # misc
 .DS_Store

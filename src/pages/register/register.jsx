@@ -24,17 +24,17 @@ const RegisterPage = props => {
     const handleSubmit = event => {
         console.log(userInfo.username,userInfo.email,userInfo.password1,userInfo.password2)
         props.onRegister(userInfo.username, userInfo.email, userInfo.password1, userInfo.password2)
-        console.log("Error:");
-        console.log(props.error)
-        if (props.error) {
-            if (props.error.response){
-                for (let field in props.error.response.data){
-                    toast.error(`⚠️ ${fieldnames[field]}: ${props.error.response.data[field]}`, {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
-                }
-            } else {
-                toast.error('⚠️ You should not be seeing this error (need to fix)', {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
-            }
-        }
+        // console.log("Error:");
+        // console.log(props.error)
+        // if (props.error) {
+        //     if (props.error.response){
+        //         for (let field in props.error.response.data){
+        //             toast.error(`⚠️ ${fieldnames[field]}: ${props.error.response.data[field]}`, {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
+        //         }
+        //     } else {
+        //         toast.error('⚠️ You should not be seeing this error (need to fix)', {position: toast.POSITION.TOP_CENTER, pauseOnHover: false})
+        //     }
+        // }
     }
     return(
         <div className="RegisterPageCSS">
