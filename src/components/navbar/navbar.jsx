@@ -36,14 +36,14 @@ class NavBar extends React.Component {
                         :
 
                         <>
-                            <Link to="/register">
+                            <Link onClick={() => {window.location.href="/register"}}>
                                 <Button variant= "light" className="mr-sm-2 signupButtonCSS">
                                     <i className="fas fa-user-plus"> </i>
                                         <span> Sign Up</span>
                                 </Button>
                             </Link>
                             
-                            <Link to="/login">
+                            <Link onClick={() => {window.location.href="/login"}}>
                                 <Button variant= "light" className="mr-sm-2 loginButtonCSS">
                                     <i className="fas fa-sign-in-alt"></i>
                                     <span> Login</span>
