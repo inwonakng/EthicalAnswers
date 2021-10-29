@@ -26,6 +26,10 @@ const SurveyCreation = props => {
         setFields(values);
     }
 
+    function handleAddQuestion() {
+        
+    }
+
     function handleRemove(i) {
         const values = [...fields];
         values.splice(i, 1);
@@ -102,47 +106,60 @@ const SurveyCreation = props => {
                                 </div>
                             </Form.Group>
 
-                            <Card className= "optionsCard">
-                                <div className= "standardRow">
-                                    <div className= "smallDescriptorColumn questionPromptDiscriptor">
-                                        Prompt
-                                    </div>
-                                    <div className= "standardColumn surveySmallFields">
-                                        <Form.Control className= "smallFields" type="email" placeholder="Enter survey prompt" onChange={e => handleInput('prompt', e)} required />
-                                    </div>
-                                </div>
-
-                                <div className= "optionsHeader">
-                                    Options
-                                </div>
-                                
-                                {fields.map((field, idx) => {
-                                    return (
-                                            <div key={`${field}-${idx}`} className= "optionsContainer">
-                                                <div className= "standardRow">
-                                                    <div className= "standardColumn optionTextBox">
-                                                        <Form.Control type="text" placeholder= {"Option " + (idx + 1)} onChange={e => handleChange(idx, e)} />
-                                                    </div>
-                                                    <div className= "optionDeleteButtonColumn">
-                                                        <Button variant= "danger" className="mr-sm-2 removeOptionButton" onClick={() => handleRemove(idx)}>
-                                                            <i className="fas fa-minus"></i>
-                                                        </Button>
-                                                    </div>
-                                                </div>
-                                                
+                            {fields.map((field, questionID) => {
+                                return (
+                                    <Card className= "optionsCard">
+                                        <div className= "standardRow">
+                                            <div className= "smallDescriptorColumn questionPromptDiscriptor">
+                                                Prompt
                                             </div>
-                                    );
-                                })}
-                                <div>
-                                    <Button variant= "success" className= "addOptionsButton" onClick= {() => handleAddOption()}>
-                                        Add Another Option
-                                    </Button>
-                                </div>
-                            </Card>
+                                            <div className= "standardColumn surveySmallFields">
+                                                <Form.Control className= "smallFields" type="email" placeholder="Enter survey prompt" onChange={e => handleInput('prompt', e)} required />
+                                            </div>
+                                        </div>
+        
+                                        <div className= "optionsHeader">
+                                            Options
+                                        </div>
+                                        
+                                        {fields.map((field, optionID) => {
+                                            return (
+                                                    <div key={`${field}-${optionID}`} className= "optionsContainer">
+                                                        <div className= "standardRow">
+                                                            <div className= "standardColumn optionTextBox">
+                                                                <Form.Control type="text" placeholder= {"Option " + (optionID + 1)} onChange={e => handleChange(optionID, e)} />
+                                                            </div>
+                                                            <div className= "optionDeleteButtonColumn">
+                                                                <Button variant= "danger" className="mr-sm-2 removeOptionButton" onClick={() => handleRemove(optionID)}>
+                                                                    <i className="fas fa-minus"></i>
+                                                                </Button>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                            );
+                                        })}
+                                        <div>
+                                            <Button variant= "success" className= "addOptionsButton" onClick= {() => handleAddOption()}>
+                                                Add Another Option
+                                            </Button>
+                                        </div>
+                                    </Card>
+                                );
+                            })}
 
-                            <Button variant= "primary" className= "submitSurveyButton" onClick= {() => submitSurvey()}>
-                                Submit Survey
-                            </Button>
+                            
+
+                            <div>
+                                <Button variant= "info" className= "addQuestionsButton" onClick= {() => handleAddQuestion()}>
+                                    Add Another Question
+                                </Button>
+                            </div>
+                            <div>
+                                <Button variant= "primary" className= "submitSurveyButton" onClick= {() => submitSurvey()}>
+                                    Submit Survey
+                                </Button>
+                            </div>
                         </Form>
                     </Card>
                     <div className= "endOfPageSpacer" />

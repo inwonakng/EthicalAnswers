@@ -36,3 +36,4 @@ backend/server/backup.sql
 backend/server/survey/__pycache__/*
 package-lock.json
 package-lock.json
+*.icloud
