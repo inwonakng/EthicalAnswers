@@ -19,6 +19,9 @@ Since custom package and specific package version are used in this project, we r
 ## Configure MySQL
 
 ### Using Docker (recommended)
+```bash
+docker build -t reactapp -f Dockerfile . 
+```
 
 ```bash
 docker-compose -f docker-compose.dev.yml up -d

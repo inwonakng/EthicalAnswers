@@ -1,6 +1,8 @@
 import * as actionTypes from "./actionTypes"
 import axios from "axios"
 
+const API_BASE = 'http://127.0.0.1:8000/rest-auth'
+
 export const authStart = () => {
     return {
         type: actionTypes.AUTH_START
@@ -42,7 +44,7 @@ export const checkAuthTimeout = expirationTime => {
 export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post("http://127.0.0.1:8000/rest-auth/login/", {
+        axios.post(`${API_BASE}/login/`, {
             username: username,
             password: password
         })
@@ -65,11 +67,11 @@ export const authLogin = (username, password) => {
 export const authSignup = (username, email, password1, password2) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post("http://127.0.0.1:8000/rest-auth/registration/", {
+        axios.post(`${API_BASE}/registration/`, {
             username: username,
-            email: email,
             password1: password1,
-            password2: password2
+            password2: password2,
+            email: email
         })
         .then(res => {
             const token = res.data.key;
