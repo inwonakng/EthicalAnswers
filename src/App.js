@@ -8,6 +8,8 @@ import * as actions from "./store/actions/auth"
 // NavBar
 import NavBar from "./components/navbar/navbar";
 
+import Footer from "./components/Footer";
+
 // router
 import BaseRouter from "./routes"
 
@@ -26,6 +28,7 @@ class App extends Component {
             <NavBar {...this.props}>
               <BaseRouter/>
             </NavBar>
+            <Footer />
         </Router>
       </div>
     )
