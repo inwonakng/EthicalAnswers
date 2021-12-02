@@ -39,12 +39,9 @@ export default function take_surveys (props) {
 
     return(
         <div style={{width:'50%', justifyContent: 'center', alignItems:'center'}}>
-                <TextField
-                    disabled={true}
-                    placeholder="Mark the preferred options with higher values to rank the options"
-                    fullWidth
-                    color='secondary'
-                />
+            <Box sx={{ borderColor: 'text.primary', borderRadius: 16 }}>
+                <h2>Mark the preferred options with higher values to rank the option</h2>
+            </Box>
             
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 250 }} aria-label="simple table">
