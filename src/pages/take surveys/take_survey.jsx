@@ -2,21 +2,72 @@ import React, { useState } from "react";
 import "./take_survey.css"
 import light_mode_logo from '../../components/logos/word_logo_black.png';
 
-import { Container, Form, Button, Card } from "react-bootstrap"
-import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import { toast } from 'react-toastify';
-import { connect } from "react-redux"
-import * as actions from "../../store/actions/auth"
-import { Link } from "react-router-dom";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Input from '@mui/material/Input';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 function valuetext(value) {
     return `${value}°C`;
 }
 
+function createData(options, description) {
+    return { options, description};
+}
+
+const rows = [
+    createData('Option 1', "A young boy"),
+    createData('Option 2', "A young boy"),
+    createData('Option 3', "A young boy"),
+    createData('Option 4', "A young boy"),
+];
+
+const ariaLabel = { 'aria-label': 'description' };
+
 export default function take_surveys (props) {
+
     return(
-        <Box sx={{ width: 500 }}>
+        <div style={{width:'50%', justifyContent: 'center', alignItems:'center'}}>
+                <TextField
+                    disabled={true}
+                    placeholder="Mark the preferred options with higher values to rank the options"
+                    fullWidth
+                    color='secondary'
+                />
+            
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 250 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                        <TableCell align="center" colSpan={2}>
+                            Question: Who would you help first in an accident?
+                        </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {rows.map((row) => (
+                        <TableRow
+                            key={row.name}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                            <TableCell align="right">{row.options}</TableCell>
+                            <TableCell align="right">{row.description}</TableCell>
+                        </TableRow>
+                    ))}
+                    </TableBody>
+                </Table>
+                </TableContainer>
             <Slider
                 aria-label="Option 1"
                 defaultValue={0}
@@ -31,7 +82,7 @@ export default function take_surveys (props) {
                 aria-label="Option 2"
                 defaultValue={0}
                 getAriaValueText={valuetext}
-                valueLabelDisplay="auto"
+                valueLabelDisplay="auto"npm
                 step={1}
                 marks
                 min={0}
@@ -57,8 +108,12 @@ export default function take_surveys (props) {
                 min={0}
                 max={10}
             ></Slider>
-        </Box>
-        
+            <Stack spacing={2} direction="row" justifyContent="flex-end" alignItems="center">
+                <Button variant="outlined">Prev</Button>
+                <Button variant="outlined">Next</Button>
+            </Stack>
+        </div>
     );   
 }
 
+  
