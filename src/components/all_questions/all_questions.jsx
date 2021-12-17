@@ -11,14 +11,7 @@ function all_questions() {
         return (
             
             <Accordion>
-                {
-                    /*
-                        should be dynamic in the future
-                        red --> not completed surveys (stacked towards the top) - can take
-                        green --> completed surveys (stacked towards the bottom) - can not take
-                    */
-                }
-                <Card bg="danger" text="light">
+                <Card bg="dark" text="light">
                     <Accordion.Toggle as={Card.Header} eventKey="0">
                         <div className="cardHeader">
                             <span className="surveyTitle">{item.survey_title}</span>
