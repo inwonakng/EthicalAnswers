@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 function all_questions() {
     return (
+        <div>
         <Accordion>
             {
                 /*
@@ -31,6 +32,8 @@ function all_questions() {
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
+        </Accordion>
+        <Accordion>
             <Card bg="success" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
                     <div className="cardHeader">
@@ -49,6 +52,7 @@ function all_questions() {
                 </Accordion.Collapse>
             </Card>
         </Accordion>
+        </div>
     )
 }
 
