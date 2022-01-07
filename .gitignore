@@ -40,3 +40,4 @@ backend/server/survey/__pycache__/*
 package-lock.json
 package-lock.json
 *.pyc
+*.icloud

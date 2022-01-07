@@ -1,0 +1,155 @@
+.surveysCreationPageCSS{
+    background-color: #ECF0F5;
+}
+
+.addOptionsButton{
+    width: 35%;
+    margin-top: 45px;
+    margin-bottom: 50px;
+}
+
+.addQuestionsButton{
+    width: 40%;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.allForms{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+    width: 90%;
+}
+
+.bigHeader{
+    font-size: 100px;
+    font-weight: 800;
+    text-decoration: underline;
+    margin-top: 2%;
+}
+
+.cardContainer{
+    width: 50%;
+    margin-top: 50px;
+}
+
+.bigDescriptorColumn {
+    column-width: 250px;
+}
+
+.endOfPageSpacer{
+    margin-top: 3%;
+}
+
+.optionDeleteButtonColumn{
+    column-width: 5%;
+}
+
+.optionField{
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.optionFieldSpacer{
+    font-size: 25px;
+    font-weight: 500;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.optionTextBox{
+    margin-right: 25px;
+}
+
+.optionsCard{
+    margin-top: 75px;
+    width: 75%;
+}
+
+.optionsContainer{
+    margin-top: 25px;
+    width: 85%;
+    align-self: center;
+}
+
+.optionsHeader{
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 45px;
+    text-decoration: underline;
+
+}
+
+.questionPromptDiscriptor{
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.removeOptionButton{
+    /* width: 100%; */
+    align-self: left;
+}
+
+.smallDescriptorColumn{
+    column-width: 150px;
+}
+
+.smallFields{
+    width: 95%;
+}
+
+.submitSurveyButton{
+    margin-top: 75px;
+    margin-bottom: 75px;
+    width: 55%;
+    font-size: 30px;
+}
+
+.surveyDescDescriptor{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-align: right;
+}
+
+.surveyBigFields{
+    margin-top: 50px;
+    height: 50px;
+}
+
+.surveySmallFields{
+    margin-top: 50px;
+    height: 50px;
+    width: 30%;
+}
+
+.surveyTitleDescriptor{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-right: 50px;
+    text-align: right;
+}
+
+/* GENERAL STYLING BELOW */
+
+.standardColumn {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+    flex: 1;
+}
+
+
+.standardRow {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}

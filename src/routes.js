@@ -8,6 +8,9 @@ import mySurveys from "./pages/mysurveys/mysurveys"
 import mySurveysStats from "./pages/mysurveys/statssurvey/stats";
 import mySurveysEdit from "./pages/mysurveys/editsurvey/edit";
 import settingsPage from "./pages/settings/settings"
+
+import surveyCreationPage from "./pages/surveyCreation/surveyCreation"
+
 import { Route } from "react-router-dom";
 
 

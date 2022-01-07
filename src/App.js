@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return ( 
-      <div style={{ backgroundColor: "#ECF0F5", width: "100vw", height: "100vh"}}>
+      <div style={{ backgroundColor: "#ECF0F5", width: "auto", height: "auto"}}>
         <Router>
             <NavBar {...this.props}>
               <BaseRouter/>
