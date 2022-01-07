@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 
 function mySurveys() {
     return (
-        <Accordion>
+        <div>
             {
-                /*
-                    should be dynamic in the future
-                */
+
+                /* Add a function */
             }
+        <Accordion>
             <Card bg="dark" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
                     <div className="cardHeader">
@@ -29,6 +29,8 @@ function mySurveys() {
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
+            </Accordion>
+            <Accordion>
             <Card bg="dark" text="light">
                 <Accordion.Toggle as={Card.Header} eventKey="0">
                     <div className="cardHeader">
@@ -48,6 +50,7 @@ function mySurveys() {
             </Card>
         
         </Accordion>
+        </div>
     )
 }
 

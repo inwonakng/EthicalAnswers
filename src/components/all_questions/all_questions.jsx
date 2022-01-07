@@ -3,53 +3,36 @@ import "./all_questions.css"
 
 import { Card, Accordion } from "react-bootstrap"
 import { Link } from "react-router-dom";
+import data from "./data.json";
+
 
 function all_questions() {
-    return (
-        <Accordion>
-            {
-                /*
-                    should be dynamic in the future
-                    red --> not completed surveys (stacked towards the top) - can take
-                    green --> completed surveys (stacked towards the bottom) - can not take
-                */
-            }
-            <Card bg="danger" text="light">
-                <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <div className="cardHeader">
-                        <span className="surveyTitle">Why are brownies delicious?</span>
-                        <Link to='/take_survey'><b><span className="surveyCompletion">LAUNCH SURVEY</span></b></Link>
-                    </div>
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                        <b>Prompt of the survey:</b> Why are brownies delicious?
-                        <br></br>
-                        <b>Number of responses to the survey:</b> 200
-                        <br></br>
-                        <b>Date created:</b> 02/17/2001
-                    </Card.Body>
-                </Accordion.Collapse>
-            </Card>
-            <Card bg="success" text="light">
-                <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <div className="cardHeader">
-                        <span className="surveyTitle">Why are brownies delicious?</span>
-                        <b><span className="surveyCompletion">COMPLETED SURVEY</span></b>
-                    </div>
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                        <b>Prompt of the survey:</b> Why are brownies delicious?
-                        <br></br>
-                        <b>Number of responses to the survey:</b> 200
-                        <br></br>
-                        <b>Date created:</b> 02/17/2001
-                    </Card.Body>
-                </Accordion.Collapse>
-            </Card>
-        </Accordion>
-    )
+    const survey_data = data.map( (item) => {
+        return (
+            
+            <Accordion>
+                <Card bg="dark" text="light">
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                        <div className="cardHeader">
+                            <span className="surveyTitle">{item.survey_title}</span>
+                            <Link to="/take/1/survey"><b><span className="surveyCompletion">LAUNCH SURVEY</span></b></Link>
+                        </div>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                        <Card.Body>
+                            <b>Prompt of the survey:</b> {item.prompt}
+                            <br></br>
+                            <b>Number of responses to the survey:</b> {item.number_of_answers}
+                            <br></br>
+                            <b>Date created:</b> {item.creation_time}
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+            </Accordion>
+        )
+
+    })
+    return survey_data;
 }
 
 export default all_questions
