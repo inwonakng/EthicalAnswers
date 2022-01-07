@@ -18,7 +18,7 @@ function all_questions() {
                 <Accordion.Toggle as={Card.Header} eventKey="0">
                     <div className="cardHeader">
                         <span className="surveyTitle">Why are brownies delicious?</span>
-                        <Link to="/take/1/survey"><b><span className="surveyCompletion">LAUNCH SURVEY</span></b></Link>
+                        <Link to='/take_survey'><b><span className="surveyCompletion">LAUNCH SURVEY</span></b></Link>
                     </div>
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
