@@ -4,44 +4,43 @@
 #       as: DATABASE
 #   config:
 #     S3_BUCKET: my-example-bucket
-# build:
-#   docker:
-#     web: Dockerfile
-#     worker: worker/Dockerfile
-#   config:
-#     RAILS_ENV: development
-#     FOO: bar
+build:
+  docker:
+    frontend: frontend/Dockerfile
+    backend: backend/Dockerfile
+    # worker: worker/Dockerfile
+  # config:
+  #   RAILS_ENV: development
+  #   FOO: bar
 # release:
 #   command:
 #     - ./deployment-tasks.sh
 #   image: worker
 run:
-  services:
+  # frontend:
+  #   container_name: web-app-frontend
+  #   restart: always
+  #   build: ./frontend
+  #   ports:
+  #     - '80:3000'
 
-    frontend:
-      container_name: web-app-frontend
-      restart: always
-      build: ./frontend
-      ports:
-        - '80:3000'
+  # backend:
+  #   container_name: web-app-backend
+  #   restart: always
+  #   build: ./backend
+  #   ports:
+  #     - '8011:8011'
+  #   depends_on:
+  #     - db
 
-    backend:
-      container_name: web-app-backend
-      restart: always
-      build: ./backend
-      ports:
-        - '8011:8011'
-      depends_on:
-        - db
-
-    db:
-      image: mysql
-      # command: --default-authentication-plugin=mysql_native_password
-      restart: always
-      ports:
-        - '3306:3306'
-      environment:
-        MYSQL_DATABASE: 'survey_generator_db'
-        # MYSQL_USER: 'root'
-        MYSQL_ALLOW_EMPTY_PASSWORD: 1
-        MYSQL_ROOT_PASSWORD: ''
+  db:
+    image: mysql
+    # command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: 'survey_generator_db'
+      # MYSQL_USER: 'root'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: ''
