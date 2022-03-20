@@ -16,6 +16,9 @@ RUN pip3 install --upgrade pip
 COPY server .
 RUN pip3 install -r requirements.txt
 
+# do the heroku stuff
+RUN python3 manage.py collectstatic
+
 # handle migrations
 RUN python3 manage.py makemigrations && python3 manage.py migrate
 

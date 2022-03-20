@@ -42,3 +42,4 @@ package-lock.json
 *.pyc
 *.icloud
 frontend/node_modules/.yarn-integrity
+backend/server/staticfiles/*
