@@ -16,5 +16,8 @@ RUN pip3 install --upgrade pip
 COPY server .
 RUN pip3 install -r requirements.txt
 
+# handle migrations
+RUN python3 manage.py makemigrations && python3 manage.py migrate
+
 # Run the application:
 CMD "${VIRTUAL_ENV}/bin/gunicorn" backend.wsgi:application --bind "0.0.0.0:8011" 
