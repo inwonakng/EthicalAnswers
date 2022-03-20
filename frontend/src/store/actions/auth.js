@@ -2,7 +2,7 @@ import * as actionTypes from "./actionTypes"
 import axios from "axios"
 import { toast } from "react-toastify";
 
-const API_BASE = 'http://127.0.0.1:8000/rest-auth'
+const API_BASE = 'http://127.0.0.1:8011/rest-auth'
 
 export const authStart = () => {
     return {
