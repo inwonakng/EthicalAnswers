@@ -89,8 +89,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ethicalanswers_db',
+        'NAME': 'survey_generator_db',
         'USER': 'root',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
         'PASSWORD': '',
         'OPTIONS': {
             # Tell MySQLdb to connect with 'utf8mb4' character set

@@ -1,4 +1,4 @@
-# EthicalAnswers
+# Survey Generator
 
 # Development setup
 ## Requirements:
@@ -126,7 +126,7 @@ python manage.py migrate
 - If you run in to errors, either go in the docker shell or command line and run the following query to reset the database
 
 ```sql
-DROP DATABASE ethicalanswers_db; CREATE DATABASE ethicalanswers_db;
+DROP DATABASE surgey_generator_db; CREATE DATABASE surgey_generator_db;
 ```
 
 <!-- - Ignore the strikethrough information below, continue to the `Migration & Start Server` section! -->

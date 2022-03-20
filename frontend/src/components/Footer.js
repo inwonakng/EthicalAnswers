@@ -9,7 +9,7 @@ function Footer() {
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-        Extending the usage of MIT's moral machine by allowing users to create and answer ethical questions.
+        Extending the usage of MIT's moral machine by allowing users to create and answer generative surveys.
         </p>
       </section>
       <div class='footer-links'>

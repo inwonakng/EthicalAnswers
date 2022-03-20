@@ -6,7 +6,7 @@ function HeroSection() {
     return (
         <div className='hero-container'>
           <video src='/videos/video-1.mp4' autoPlay loop muted />
-          <h1>EthicalAI</h1>
+          <h1>Survey Generator</h1>
           <p>A machine learning app developed by RPI students</p>
           <div className='hero-btns'>
             <Button

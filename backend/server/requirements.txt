@@ -3,7 +3,8 @@ asgiref==3.3.4
 billiard==3.6.4.0
 celery==5.1.0
 certifi==2021.5.30
-cffi==1.14.5
+gunicorn
+# cffi==1.14.5
 chardet==4.0.0
 click==7.1.2
 click-didyoumean==0.0.3
